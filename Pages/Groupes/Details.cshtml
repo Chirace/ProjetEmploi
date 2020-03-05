@@ -1,0 +1,25 @@
+﻿@page
+@model ProjetEmploi.Pages.Groupes.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Détails</h1>
+
+<div>
+    <h4>Groupe</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Groupe.Nom)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Groupe.Nom)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Groupe.ID">Modifier</a> |
+    <a asp-page="./Index">Retour à la liste</a>
+</div>

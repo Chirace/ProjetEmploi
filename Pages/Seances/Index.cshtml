@@ -1,0 +1,72 @@
+﻿@page
+@model ProjetEmploi.Pages.Seances.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Nouvelle Séance</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Seance[0].Jour)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seance[0].HeureDebut)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seance[0].Duree)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seance[0].LUE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seance[0].LeTypeSeance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seance[0].LaSalle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seance[0].LeGroupe)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Seance) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Jour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HeureDebut)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duree)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LUE.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeTypeSeance.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LaSalle.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeGroupe.ID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Modifier</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Détails</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Supprimer</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
